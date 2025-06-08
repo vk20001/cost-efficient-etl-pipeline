@@ -1,0 +1,9 @@
+input_file: "/opt/airflow/data/raw/sales_data.csv"
+output_file: "/opt/airflow/data/processed/processed_sales.csv"
+log_file: "/opt/airflow/logs/etl.log"
+
+columns_to_keep:
+  - date
+  - product
+  - quantity
+  - price

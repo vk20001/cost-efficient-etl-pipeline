@@ -1,0 +1,1 @@
+[2025-06-08T08:41:26.433+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: cost_efficient_etl_pipeline.run_ge_validation scheduled__2025-06-06T00:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

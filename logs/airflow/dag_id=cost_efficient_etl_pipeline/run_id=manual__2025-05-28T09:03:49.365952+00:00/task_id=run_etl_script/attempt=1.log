@@ -1,0 +1,41 @@
+[2025-05-28T09:04:13.210+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-28T09:04:13.650+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cost_efficient_etl_pipeline.run_etl_script manual__2025-05-28T09:03:49.365952+00:00 [queued]>
+[2025-05-28T09:04:13.720+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cost_efficient_etl_pipeline.run_etl_script manual__2025-05-28T09:03:49.365952+00:00 [queued]>
+[2025-05-28T09:04:13.722+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-05-28T09:04:13.796+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_etl_script> on 2025-05-28 09:03:49.365952+00:00
+[2025-05-28T09:04:13.912+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=189) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-05-28T09:04:13.926+0000] {standard_task_runner.py:63} INFO - Started process 191 to run task
+[2025-05-28T09:04:13.915+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cost_efficient_etl_pipeline', 'run_etl_script', 'manual__2025-05-28T09:03:49.365952+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline_dag.py', '--cfg-path', '/tmp/tmprw7rzlo9']
+[2025-05-28T09:04:13.947+0000] {standard_task_runner.py:91} INFO - Job 8: Subtask run_etl_script
+[2025-05-28T09:04:14.130+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-28T09:04:14.684+0000] {task_command.py:426} INFO - Running <TaskInstance: cost_efficient_etl_pipeline.run_etl_script manual__2025-05-28T09:03:49.365952+00:00 [running]> on host 3a13b70a3a87
+[2025-05-28T09:04:15.626+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='cost_efficient_etl_pipeline' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-05-28T09:03:49.365952+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-28T09:03:49.365952+00:00'
+[2025-05-28T09:04:15.634+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-28T09:04:20.384+0000] {main_etl.py:27} INFO - Starting ETL process...
+[2025-05-28T09:04:20.395+0000] {main_etl.py:42} ERROR - ETL process failed: [Errno 2] No such file or directory: 'data/input/sample_data.csv'
+Traceback (most recent call last):
+  File "/opt/airflow/src/etl/main_etl.py", line 29, in run_etl
+    df = pd.read_csv(input_file)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 948, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 611, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1448, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1705, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/common.py", line 863, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/input/sample_data.csv'
+[2025-05-28T09:04:20.417+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-05-28T09:04:20.419+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-28T09:04:20.447+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cost_efficient_etl_pipeline, task_id=run_etl_script, run_id=manual__2025-05-28T09:03:49.365952+00:00, execution_date=20250528T090349, start_date=20250528T090413, end_date=20250528T090420
+[2025-05-28T09:04:20.509+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-28T09:04:20.556+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-28T09:04:20.561+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

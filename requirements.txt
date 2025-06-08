@@ -1,5 +1,5 @@
 pandas
-great_expectations
+great_expectations==0.17.21
 pytest
 prometheus_client
 

@@ -1,0 +1,57 @@
+2025-05-27 13:48:22,458 - INFO - Starting ETL process...
+2025-05-27 13:48:22,612 - INFO - Loaded input data with shape (2, 4)
+2025-05-27 13:48:22,733 - INFO - Filtered columns: ['id', 'name', 'value']
+2025-05-27 13:48:22,778 - INFO - Saved cleaned data to data/output/processed_data.csv
+2025-05-27 13:48:22,778 - INFO - ETL pipeline finished successfully ✅
+2025-06-08 11:06:31,691 - INFO - Starting ETL process...
+2025-06-08 11:06:31,694 - ERROR - ETL process failed: [Errno 2] No such file or directory: '/opt/airflow/data/raw/sales_data.csv'
+Traceback (most recent call last):
+  File "/mnt/d/cost_efficient_etl_pipeline/src/etl/main_etl.py", line 46, in run_etl
+    df = pd.read_csv(input_file)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/cost_efficient_etl_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 948, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/cost_efficient_etl_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 611, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/cost_efficient_etl_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1448, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/cost_efficient_etl_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1705, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/mnt/d/cost_efficient_etl_pipeline/venv/lib/python3.12/site-packages/pandas/io/common.py", line 863, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/raw/sales_data.csv'
+2025-06-08 11:16:39,752 - INFO - Starting ETL process...
+2025-06-08 11:16:39,825 - INFO - Loaded input data with shape (4, 4)
+2025-06-08 11:16:39,890 - INFO - Filtered columns: ['date', 'product', 'quantity', 'price']
+2025-06-08 11:16:39,898 - INFO - Calculated total_sales
+2025-06-08 11:16:39,955 - INFO - Saved processed data to data/processed/processed_sales.csv
+2025-06-08 11:16:39,955 - INFO - ETL pipeline finished successfully ✅
+2025-06-08 11:21:16,229 - INFO - Starting ETL process...
+2025-06-08 11:21:16,314 - INFO - Loaded input data with shape (4, 4)
+2025-06-08 11:21:16,373 - INFO - Filtered columns: ['date', 'product', 'quantity', 'price']
+2025-06-08 11:21:16,382 - INFO - Calculated total_sales
+2025-06-08 11:21:16,422 - INFO - Saved processed data to data/processed/processed_sales.csv
+2025-06-08 11:21:16,423 - INFO - ETL pipeline finished successfully ✅
+2025-06-08 11:22:35,142 - INFO - Starting ETL process...
+2025-06-08 11:22:35,229 - INFO - Loaded input data with shape (4, 4)
+2025-06-08 11:22:35,315 - INFO - Filtered columns: ['date', 'product', 'quantity', 'price']
+2025-06-08 11:22:35,329 - INFO - Calculated total_sales
+2025-06-08 11:22:35,378 - INFO - Saved processed data to data/processed/processed_sales.csv
+2025-06-08 11:22:35,378 - INFO - ETL pipeline finished successfully ✅
+2025-06-08 11:39:07,599 - INFO - Starting ETL process...
+2025-06-08 11:39:07,651 - INFO - Loaded input data with shape (4, 4)
+2025-06-08 11:39:07,708 - INFO - Filtered columns: ['date', 'product', 'quantity', 'price']
+2025-06-08 11:39:07,715 - INFO - Calculated total_sales
+2025-06-08 11:39:07,748 - INFO - Saved processed data to data/processed/processed_sales.csv
+2025-06-08 11:39:07,749 - INFO - ETL pipeline finished successfully ✅
+2025-06-08 11:44:00,623 - INFO - Starting ETL process...
+2025-06-08 11:44:00,697 - INFO - Loaded input data with shape (4, 4)
+2025-06-08 11:44:00,774 - INFO - Filtered columns: ['date', 'product', 'quantity', 'price']
+2025-06-08 11:44:00,783 - INFO - Calculated total_sales
+2025-06-08 11:44:00,831 - INFO - Saved processed data to data/processed/processed_sales.csv
+2025-06-08 11:44:00,832 - INFO - ETL pipeline finished successfully ✅

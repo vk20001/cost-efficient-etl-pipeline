@@ -1,0 +1,57 @@
+[2025-06-06T14:21:38.333+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-06T14:21:38.387+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cost_efficient_etl_pipeline.run_ge_validation manual__2025-06-06T14:21:14.650256+00:00 [queued]>
+[2025-06-06T14:21:38.405+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cost_efficient_etl_pipeline.run_ge_validation manual__2025-06-06T14:21:14.650256+00:00 [queued]>
+[2025-06-06T14:21:38.407+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-06T14:21:38.434+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_ge_validation> on 2025-06-06 14:21:14.650256+00:00
+[2025-06-06T14:21:38.492+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1305) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-06T14:21:38.497+0000] {standard_task_runner.py:63} INFO - Started process 1335 to run task
+[2025-06-06T14:21:38.496+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cost_efficient_etl_pipeline', 'run_ge_validation', 'manual__2025-06-06T14:21:14.650256+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline_dag.py', '--cfg-path', '/tmp/tmpk7ohpgs5']
+[2025-06-06T14:21:38.499+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask run_ge_validation
+[2025-06-06T14:21:38.551+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-06T14:21:38.701+0000] {task_command.py:426} INFO - Running <TaskInstance: cost_efficient_etl_pipeline.run_ge_validation manual__2025-06-06T14:21:14.650256+00:00 [running]> on host 5203c265b0c6
+[2025-06-06T14:21:39.240+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='cost_efficient_etl_pipeline' AIRFLOW_CTX_TASK_ID='run_ge_validation' AIRFLOW_CTX_EXECUTION_DATE='2025-06-06T14:21:14.650256+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-06T14:21:14.650256+00:00'
+[2025-06-06T14:21:39.244+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-06T14:21:39.644+0000] {file_data_context.py:224} INFO - FileDataContext loading fluent config
+[2025-06-06T14:21:39.693+0000] {config.py:185} INFO - Loading 'datasources' ->
+[]
+[2025-06-06T14:21:40.826+0000] {batch_filter.py:251} INFO - batch_slice: -1 was parsed to: slice(-1, None, None)
+[2025-06-06T14:21:41.148+0000] {validator.py:1496} INFO - 	11 expectation(s) included in expectation_suite.
+[2025-06-06T14:21:41.570+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/38 [00:00<?, ?it/s]
+[2025-06-06T14:21:41.572+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/38 [00:00<?, ?it/s]
+[2025-06-06T14:21:41.586+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|5         | 2/38 [00:00<00:00, 141.28it/s]
+[2025-06-06T14:21:41.659+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|5         | 2/38 [00:00<00:01, 22.92it/s] 
+[2025-06-06T14:21:41.663+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 3/38 [00:00<00:01, 33.16it/s]
+[2025-06-06T14:21:41.736+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 3/38 [00:00<00:01, 18.34it/s]
+[2025-06-06T14:21:41.738+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 3/38 [00:00<00:01, 18.34it/s]
+[2025-06-06T14:21:41.780+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 10/38 [00:00<00:01, 18.34it/s]
+[2025-06-06T14:21:41.834+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 10/38 [00:00<00:01, 18.34it/s]
+[2025-06-06T14:21:41.895+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 135.44it/s]
+[2025-06-06T14:21:41.898+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 135.44it/s]
+[2025-06-06T14:21:41.919+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 135.44it/s]
+[2025-06-06T14:21:41.921+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 135.44it/s]
+[2025-06-06T14:21:41.924+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 108.01it/s]
+[2025-06-06T14:21:45.376+0000] {validator.py:1496} INFO - 	11 expectation(s) included in expectation_suite.
+[2025-06-06T14:21:45.564+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/38 [00:00<?, ?it/s]
+[2025-06-06T14:21:45.566+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/38 [00:00<?, ?it/s]
+[2025-06-06T14:21:45.568+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|5         | 2/38 [00:00<00:00, 925.59it/s]
+[2025-06-06T14:21:45.605+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|5         | 2/38 [00:00<00:00, 50.74it/s] 
+[2025-06-06T14:21:45.607+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 3/38 [00:00<00:00, 72.79it/s]
+[2025-06-06T14:21:45.643+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 3/38 [00:00<00:00, 38.85it/s]
+[2025-06-06T14:21:45.654+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 10/38 [00:00<00:00, 113.63it/s]
+[2025-06-06T14:21:45.689+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 10/38 [00:00<00:00, 81.04it/s] 
+[2025-06-06T14:21:45.691+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 10/38 [00:00<00:00, 81.04it/s]
+[2025-06-06T14:21:45.717+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 81.04it/s]
+[2025-06-06T14:21:45.731+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 81.04it/s]
+[2025-06-06T14:21:45.733+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 81.04it/s]
+[2025-06-06T14:21:45.734+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 38/38 [00:00<00:00, 225.79it/s]
+[2025-06-06T14:21:49.076+0000] {logging_mixin.py:188} INFO - Validation passed!
+[2025-06-06T14:21:49.079+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-06T14:21:49.081+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-06T14:21:49.108+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=cost_efficient_etl_pipeline, task_id=run_ge_validation, run_id=manual__2025-06-06T14:21:14.650256+00:00, execution_date=20250606T142114, start_date=20250606T142138, end_date=20250606T142149
+[2025-06-06T14:21:49.197+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-06T14:21:49.246+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-06T14:21:49.251+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
