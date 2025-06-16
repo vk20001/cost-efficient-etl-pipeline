@@ -1,0 +1,7 @@
+# staging/stg_sellers.yml
+version: 2
+models:
+  - name: stg_sellers
+    columns:
+      - name: seller_id
+        tests: [not_null, unique]

@@ -1,0 +1,58 @@
+[2025-06-11T11:09:20.999+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-11T11:09:21.173+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-11T11:09:16.831977+00:00 [queued]>
+[2025-06-11T11:09:21.190+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-11T11:09:16.831977+00:00 [queued]>
+[2025-06-11T11:09:21.192+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-11T11:09:21.217+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_etl_script> on 2025-06-11 11:09:16.831977+00:00
+[2025-06-11T11:09:21.244+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=700) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-11T11:09:21.249+0000] {standard_task_runner.py:63} INFO - Started process 701 to run task
+[2025-06-11T11:09:21.248+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_etl_script', 'manual__2025-06-11T11:09:16.831977+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpyduxf40j']
+[2025-06-11T11:09:21.262+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_etl_script
+[2025-06-11T11:09:21.306+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-06-11T11:09:21.360+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-11T11:09:16.831977+00:00 [running]> on host 5698a207bf0f
+[2025-06-11T11:09:21.513+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-06-11T11:09:16.831977+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-11T11:09:16.831977+00:00'
+[2025-06-11T11:09:21.515+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-11T11:09:21.567+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-11T11:09:21.574+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/src/etl/brazil_etl.py']
+[2025-06-11T11:09:21.592+0000] {subprocess.py:86} INFO - Output:
+[2025-06-11T11:10:25.165+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_customers_dataset.csv
+[2025-06-11T11:10:25.423+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: customers
+[2025-06-11T11:10:25.425+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_customers_dataset into customers
+[2025-06-11T11:10:25.426+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.427+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_geolocation_dataset.csv
+[2025-06-11T11:10:25.429+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: geolocation
+[2025-06-11T11:10:25.429+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_geolocation_dataset into geolocation
+[2025-06-11T11:10:25.431+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.432+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_orders_dataset.csv
+[2025-06-11T11:10:25.433+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: orders
+[2025-06-11T11:10:25.433+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_orders_dataset into orders
+[2025-06-11T11:10:25.434+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.435+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_items_dataset.csv
+[2025-06-11T11:10:25.436+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: order_items
+[2025-06-11T11:10:25.437+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_order_items_dataset into order_items
+[2025-06-11T11:10:25.438+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.438+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_payments_dataset.csv
+[2025-06-11T11:10:25.439+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: order_payments
+[2025-06-11T11:10:25.440+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_order_payments_dataset into order_payments
+[2025-06-11T11:10:25.441+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.441+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_reviews_dataset.csv
+[2025-06-11T11:10:25.442+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: order_reviews
+[2025-06-11T11:10:25.442+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_order_reviews_dataset into order_reviews
+[2025-06-11T11:10:25.443+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.444+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_products_dataset.csv
+[2025-06-11T11:10:25.446+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: products
+[2025-06-11T11:10:25.446+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_products_dataset into products
+[2025-06-11T11:10:25.447+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.448+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_sellers_dataset.csv
+[2025-06-11T11:10:25.449+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: sellers
+[2025-06-11T11:10:25.449+0000] {subprocess.py:93} INFO - ✅ Successfully loaded olist_sellers_dataset into sellers
+[2025-06-11T11:10:25.450+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.451+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/product_category_name_translation.csv
+[2025-06-11T11:10:25.452+0000] {subprocess.py:93} INFO - 🗄️  Loading into Postgres table: category_translation
+[2025-06-11T11:10:25.453+0000] {subprocess.py:93} INFO - ✅ Successfully loaded product_category_name_translation into category_translation
+[2025-06-11T11:10:25.453+0000] {subprocess.py:93} INFO - 
+[2025-06-11T11:10:25.476+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-06-11T11:10:25.486+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-11T11:10:25.612+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_brazil_pipeline, task_id=run_etl_script, run_id=manual__2025-06-11T11:09:16.831977+00:00, execution_date=20250611T110916, start_date=20250611T110921, end_date=20250611T111025
+[2025-06-11T11:10:25.701+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-11T11:10:25.788+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-11T11:10:25.793+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

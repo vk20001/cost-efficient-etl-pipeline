@@ -1,0 +1,11 @@
+# geolocation_checkpoint.yml
+name: geolocation_checkpoint
+config_version: 1.0
+class_name: SimpleCheckpoint
+run_name_template: "%Y%m%d-%H%M%S-geolocation_checkpoint"
+validations:
+  - batch_request:
+      datasource_name: postgres_brazil_etl
+      data_connector_name: default_configured_data_connector_name
+      data_asset_name: geolocation
+    expectation_suite_name: geolocation.expectations

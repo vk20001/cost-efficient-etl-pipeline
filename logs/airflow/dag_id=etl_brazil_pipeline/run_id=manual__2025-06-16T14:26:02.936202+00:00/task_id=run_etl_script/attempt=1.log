@@ -1,0 +1,160 @@
+[2025-06-16T14:26:13.383+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T14:26:13.532+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T14:26:02.936202+00:00 [queued]>
+[2025-06-16T14:26:13.551+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T14:26:02.936202+00:00 [queued]>
+[2025-06-16T14:26:13.553+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-16T14:26:13.581+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_etl_script> on 2025-06-16 14:26:02.936202+00:00
+[2025-06-16T14:26:13.623+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=312) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T14:26:13.640+0000] {standard_task_runner.py:63} INFO - Started process 326 to run task
+[2025-06-16T14:26:13.642+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_etl_script', 'manual__2025-06-16T14:26:02.936202+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpudffcf33']
+[2025-06-16T14:26:13.644+0000] {standard_task_runner.py:91} INFO - Job 63: Subtask run_etl_script
+[2025-06-16T14:26:13.734+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T14:26:14.283+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T14:26:02.936202+00:00 [running]> on host ea696437fd0a
+[2025-06-16T14:26:14.756+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T14:26:02.936202+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T14:26:02.936202+00:00'
+[2025-06-16T14:26:14.766+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T14:26:14.895+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T14:26:14.898+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/src/etl/brazil_etl.py']
+[2025-06-16T14:26:14.920+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T14:26:21.989+0000] {subprocess.py:93} INFO - /home/airflow/.local/lib/python3.12/site-packages/pandera/_pandas_deprecated.py:146: FutureWarning: Importing pandas-specific classes and functions from the
+[2025-06-16T14:26:21.991+0000] {subprocess.py:93} INFO - top-level pandera module will be **removed in a future version of pandera**.
+[2025-06-16T14:26:21.992+0000] {subprocess.py:93} INFO - If you're using pandera to validate pandas objects, we highly recommend updating
+[2025-06-16T14:26:21.993+0000] {subprocess.py:93} INFO - your import:
+[2025-06-16T14:26:21.995+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:21.996+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T14:26:21.997+0000] {subprocess.py:93} INFO - # old import
+[2025-06-16T14:26:21.998+0000] {subprocess.py:93} INFO - import pandera as pa
+[2025-06-16T14:26:22.000+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.001+0000] {subprocess.py:93} INFO - # new import
+[2025-06-16T14:26:22.002+0000] {subprocess.py:93} INFO - import pandera.pandas as pa
+[2025-06-16T14:26:22.003+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T14:26:22.004+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.005+0000] {subprocess.py:93} INFO - If you're using pandera to validate objects from other compatible libraries
+[2025-06-16T14:26:22.007+0000] {subprocess.py:93} INFO - like pyspark or polars, see the supported libraries section of the documentation
+[2025-06-16T14:26:22.008+0000] {subprocess.py:93} INFO - for more information on how to import pandera:
+[2025-06-16T14:26:22.009+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.010+0000] {subprocess.py:93} INFO - https://pandera.readthedocs.io/en/stable/supported_libraries.html
+[2025-06-16T14:26:22.011+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.012+0000] {subprocess.py:93} INFO - To disable this warning, set the environment variable:
+[2025-06-16T14:26:22.013+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.015+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T14:26:22.016+0000] {subprocess.py:93} INFO - export DISABLE_PANDERA_IMPORT_WARNING=True
+[2025-06-16T14:26:22.017+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T14:26:22.018+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:22.019+0000] {subprocess.py:93} INFO -   warnings.warn(_future_warning, FutureWarning)
+[2025-06-16T14:26:39.428+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.438+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_customers_dataset.csv
+[2025-06-16T14:26:39.445+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'customers' dataset...
+[2025-06-16T14:26:39.448+0000] {subprocess.py:93} INFO - 🗄️  Loading 'customers' into PostgreSQL...
+[2025-06-16T14:26:39.452+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_customers_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table customers because other objects depend on it
+[2025-06-16T14:26:39.467+0000] {subprocess.py:93} INFO - DETAIL:  view stg_customers depends on table customers
+[2025-06-16T14:26:39.470+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.475+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.477+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.479+0000] {subprocess.py:93} INFO - DROP TABLE customers]
+[2025-06-16T14:26:39.489+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.492+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.496+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.505+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_geolocation_dataset.csv
+[2025-06-16T14:26:39.512+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'geolocation' dataset...
+[2025-06-16T14:26:39.516+0000] {subprocess.py:93} INFO - 🗄️  Loading 'geolocation' into PostgreSQL...
+[2025-06-16T14:26:39.522+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_geolocation_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table geolocation because other objects depend on it
+[2025-06-16T14:26:39.528+0000] {subprocess.py:93} INFO - DETAIL:  view stg_geolocation depends on table geolocation
+[2025-06-16T14:26:39.533+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.541+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.543+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.549+0000] {subprocess.py:93} INFO - DROP TABLE geolocation]
+[2025-06-16T14:26:39.552+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.553+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.557+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.561+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_orders_dataset.csv
+[2025-06-16T14:26:39.568+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'orders' dataset...
+[2025-06-16T14:26:39.574+0000] {subprocess.py:93} INFO - 🗄️  Loading 'orders' into PostgreSQL...
+[2025-06-16T14:26:39.580+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_orders_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table orders because other objects depend on it
+[2025-06-16T14:26:39.582+0000] {subprocess.py:93} INFO - DETAIL:  view stg_orders depends on table orders
+[2025-06-16T14:26:39.584+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.587+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.589+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.592+0000] {subprocess.py:93} INFO - DROP TABLE orders]
+[2025-06-16T14:26:39.594+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.597+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.600+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.602+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_items_dataset.csv
+[2025-06-16T14:26:39.604+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_items' dataset...
+[2025-06-16T14:26:39.607+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_items' into PostgreSQL...
+[2025-06-16T14:26:39.608+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_order_items_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table order_items because other objects depend on it
+[2025-06-16T14:26:39.612+0000] {subprocess.py:93} INFO - DETAIL:  view stg_order_items depends on table order_items
+[2025-06-16T14:26:39.613+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.616+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.617+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.619+0000] {subprocess.py:93} INFO - DROP TABLE order_items]
+[2025-06-16T14:26:39.621+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.623+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.625+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.631+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_payments_dataset.csv
+[2025-06-16T14:26:39.634+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_payments' dataset...
+[2025-06-16T14:26:39.636+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_payments' into PostgreSQL...
+[2025-06-16T14:26:39.638+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_order_payments_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table order_payments because other objects depend on it
+[2025-06-16T14:26:39.642+0000] {subprocess.py:93} INFO - DETAIL:  view stg_order_payments depends on table order_payments
+[2025-06-16T14:26:39.644+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.646+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.648+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.649+0000] {subprocess.py:93} INFO - DROP TABLE order_payments]
+[2025-06-16T14:26:39.651+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.652+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.655+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.656+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_reviews_dataset.csv
+[2025-06-16T14:26:39.659+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_reviews' dataset...
+[2025-06-16T14:26:39.663+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_reviews' into PostgreSQL...
+[2025-06-16T14:26:39.666+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_order_reviews_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table order_reviews because other objects depend on it
+[2025-06-16T14:26:39.669+0000] {subprocess.py:93} INFO - DETAIL:  view stg_order_reviews depends on table order_reviews
+[2025-06-16T14:26:39.671+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.673+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.675+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.676+0000] {subprocess.py:93} INFO - DROP TABLE order_reviews]
+[2025-06-16T14:26:39.678+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.680+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.682+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.683+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_products_dataset.csv
+[2025-06-16T14:26:39.688+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'products' dataset...
+[2025-06-16T14:26:39.690+0000] {subprocess.py:93} INFO - 🗄️  Loading 'products' into PostgreSQL...
+[2025-06-16T14:26:39.691+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_products_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table products because other objects depend on it
+[2025-06-16T14:26:39.693+0000] {subprocess.py:93} INFO - DETAIL:  view stg_products depends on table products
+[2025-06-16T14:26:39.694+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.695+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.697+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.698+0000] {subprocess.py:93} INFO - DROP TABLE products]
+[2025-06-16T14:26:39.700+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.701+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.703+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.705+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_sellers_dataset.csv
+[2025-06-16T14:26:39.707+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'sellers' dataset...
+[2025-06-16T14:26:39.708+0000] {subprocess.py:93} INFO - 🗄️  Loading 'sellers' into PostgreSQL...
+[2025-06-16T14:26:39.710+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/olist_sellers_dataset.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table sellers because other objects depend on it
+[2025-06-16T14:26:39.714+0000] {subprocess.py:93} INFO - DETAIL:  view stg_sellers depends on table sellers
+[2025-06-16T14:26:39.715+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.717+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.718+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.723+0000] {subprocess.py:93} INFO - DROP TABLE sellers]
+[2025-06-16T14:26:39.725+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.727+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.729+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.732+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/product_category_name_translation.csv
+[2025-06-16T14:26:39.734+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'category_translation' dataset...
+[2025-06-16T14:26:39.735+0000] {subprocess.py:93} INFO - 🗄️  Loading 'category_translation' into PostgreSQL...
+[2025-06-16T14:26:39.739+0000] {subprocess.py:93} INFO - ❌ ERROR while processing /opt/airflow/data/raw/product_category_name_translation.csv → (psycopg2.errors.DependentObjectsStillExist) cannot drop table category_translation because other objects depend on it
+[2025-06-16T14:26:39.743+0000] {subprocess.py:93} INFO - DETAIL:  view stg_category_translation depends on table category_translation
+[2025-06-16T14:26:39.746+0000] {subprocess.py:93} INFO - HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+[2025-06-16T14:26:39.750+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:39.752+0000] {subprocess.py:93} INFO - [SQL:
+[2025-06-16T14:26:39.754+0000] {subprocess.py:93} INFO - DROP TABLE category_translation]
+[2025-06-16T14:26:39.758+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/2j85)
+[2025-06-16T14:26:39.760+0000] {subprocess.py:93} INFO - 
+[2025-06-16T14:26:40.124+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-06-16T14:26:40.170+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T14:26:40.575+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_brazil_pipeline, task_id=run_etl_script, run_id=manual__2025-06-16T14:26:02.936202+00:00, execution_date=20250616T142602, start_date=20250616T142613, end_date=20250616T142640
+[2025-06-16T14:26:40.717+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-16T14:26:40.973+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T14:26:40.978+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

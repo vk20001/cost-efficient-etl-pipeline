@@ -1,0 +1,11 @@
+# sellers_checkpoint.yml
+name: sellers_checkpoint
+config_version: 1.0
+class_name: SimpleCheckpoint
+run_name_template: "%Y%m%d-%H%M%S-sellers_checkpoint"
+validations:
+  - batch_request:
+      datasource_name: postgres_brazil_etl
+      data_connector_name: default_configured_data_connector_name
+      data_asset_name: sellers
+    expectation_suite_name: sellers.expectations

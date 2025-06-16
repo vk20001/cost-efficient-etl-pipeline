@@ -1,0 +1,12 @@
+dbt_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: postgres
+      password: postgres
+      dbname: brazil_etl
+      port: 5432
+      schema: public
+      threads: 2

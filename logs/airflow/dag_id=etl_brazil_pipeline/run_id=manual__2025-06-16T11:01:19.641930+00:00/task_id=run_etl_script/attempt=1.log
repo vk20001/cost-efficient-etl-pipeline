@@ -1,0 +1,97 @@
+[2025-06-16T11:01:40.130+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T11:01:40.214+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:01:19.641930+00:00 [queued]>
+[2025-06-16T11:01:40.235+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:01:19.641930+00:00 [queued]>
+[2025-06-16T11:01:40.237+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-16T11:01:40.263+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_etl_script> on 2025-06-16 11:01:19.641930+00:00
+[2025-06-16T11:01:40.331+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1024) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T11:01:40.333+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_etl_script', 'manual__2025-06-16T11:01:19.641930+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpdut0emi0']
+[2025-06-16T11:01:40.334+0000] {standard_task_runner.py:63} INFO - Started process 1052 to run task
+[2025-06-16T11:01:40.335+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask run_etl_script
+[2025-06-16T11:01:40.374+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T11:01:40.459+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:01:19.641930+00:00 [running]> on host ad328373235b
+[2025-06-16T11:01:40.653+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T11:01:19.641930+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T11:01:19.641930+00:00'
+[2025-06-16T11:01:40.656+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T11:01:40.695+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T11:01:40.704+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/src/etl/brazil_etl.py']
+[2025-06-16T11:01:40.739+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T11:01:47.680+0000] {subprocess.py:93} INFO - /home/airflow/.local/lib/python3.12/site-packages/pandera/_pandas_deprecated.py:146: FutureWarning: Importing pandas-specific classes and functions from the
+[2025-06-16T11:01:47.682+0000] {subprocess.py:93} INFO - top-level pandera module will be **removed in a future version of pandera**.
+[2025-06-16T11:01:47.683+0000] {subprocess.py:93} INFO - If you're using pandera to validate pandas objects, we highly recommend updating
+[2025-06-16T11:01:47.684+0000] {subprocess.py:93} INFO - your import:
+[2025-06-16T11:01:47.685+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.687+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:01:47.689+0000] {subprocess.py:93} INFO - # old import
+[2025-06-16T11:01:47.690+0000] {subprocess.py:93} INFO - import pandera as pa
+[2025-06-16T11:01:47.692+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.693+0000] {subprocess.py:93} INFO - # new import
+[2025-06-16T11:01:47.694+0000] {subprocess.py:93} INFO - import pandera.pandas as pa
+[2025-06-16T11:01:47.697+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:01:47.698+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.699+0000] {subprocess.py:93} INFO - If you're using pandera to validate objects from other compatible libraries
+[2025-06-16T11:01:47.701+0000] {subprocess.py:93} INFO - like pyspark or polars, see the supported libraries section of the documentation
+[2025-06-16T11:01:47.702+0000] {subprocess.py:93} INFO - for more information on how to import pandera:
+[2025-06-16T11:01:47.703+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.704+0000] {subprocess.py:93} INFO - https://pandera.readthedocs.io/en/stable/supported_libraries.html
+[2025-06-16T11:01:47.705+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.707+0000] {subprocess.py:93} INFO - To disable this warning, set the environment variable:
+[2025-06-16T11:01:47.707+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.708+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:01:47.709+0000] {subprocess.py:93} INFO - export DISABLE_PANDERA_IMPORT_WARNING=True
+[2025-06-16T11:01:47.710+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:01:47.711+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:01:47.712+0000] {subprocess.py:93} INFO -   warnings.warn(_future_warning, FutureWarning)
+[2025-06-16T11:03:31.314+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.441+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_customers_dataset.csv
+[2025-06-16T11:03:31.446+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'customers' dataset...
+[2025-06-16T11:03:31.453+0000] {subprocess.py:93} INFO - 🗄️  Loading 'customers' into PostgreSQL...
+[2025-06-16T11:03:31.456+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_customers_dataset' into 'customers'
+[2025-06-16T11:03:31.461+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.465+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_geolocation_dataset.csv
+[2025-06-16T11:03:31.469+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'geolocation' dataset...
+[2025-06-16T11:03:31.472+0000] {subprocess.py:93} INFO - 🗄️  Loading 'geolocation' into PostgreSQL...
+[2025-06-16T11:03:31.478+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_geolocation_dataset' into 'geolocation'
+[2025-06-16T11:03:31.479+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.483+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_orders_dataset.csv
+[2025-06-16T11:03:31.484+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'orders' dataset...
+[2025-06-16T11:03:31.489+0000] {subprocess.py:93} INFO - 🗄️  Loading 'orders' into PostgreSQL...
+[2025-06-16T11:03:31.493+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_orders_dataset' into 'orders'
+[2025-06-16T11:03:31.495+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.498+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_items_dataset.csv
+[2025-06-16T11:03:31.500+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_items' dataset...
+[2025-06-16T11:03:31.502+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_items' into PostgreSQL...
+[2025-06-16T11:03:31.505+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_order_items_dataset' into 'order_items'
+[2025-06-16T11:03:31.507+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.508+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_payments_dataset.csv
+[2025-06-16T11:03:31.510+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_payments' dataset...
+[2025-06-16T11:03:31.512+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_payments' into PostgreSQL...
+[2025-06-16T11:03:31.514+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_order_payments_dataset' into 'order_payments'
+[2025-06-16T11:03:31.516+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.517+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_order_reviews_dataset.csv
+[2025-06-16T11:03:31.518+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'order_reviews' dataset...
+[2025-06-16T11:03:31.520+0000] {subprocess.py:93} INFO - 🗄️  Loading 'order_reviews' into PostgreSQL...
+[2025-06-16T11:03:31.521+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_order_reviews_dataset' into 'order_reviews'
+[2025-06-16T11:03:31.523+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.524+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_products_dataset.csv
+[2025-06-16T11:03:31.528+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'products' dataset...
+[2025-06-16T11:03:31.530+0000] {subprocess.py:93} INFO - 🗄️  Loading 'products' into PostgreSQL...
+[2025-06-16T11:03:31.531+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_products_dataset' into 'products'
+[2025-06-16T11:03:31.532+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.533+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/olist_sellers_dataset.csv
+[2025-06-16T11:03:31.534+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'sellers' dataset...
+[2025-06-16T11:03:31.536+0000] {subprocess.py:93} INFO - 🗄️  Loading 'sellers' into PostgreSQL...
+[2025-06-16T11:03:31.537+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'olist_sellers_dataset' into 'sellers'
+[2025-06-16T11:03:31.539+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:03:31.540+0000] {subprocess.py:93} INFO - 📥 Reading /opt/airflow/data/raw/product_category_name_translation.csv
+[2025-06-16T11:03:31.541+0000] {subprocess.py:93} INFO - 🧹 Cleaning 'category_translation' dataset...
+[2025-06-16T11:03:31.543+0000] {subprocess.py:93} INFO - 🗄️  Loading 'category_translation' into PostgreSQL...
+[2025-06-16T11:03:31.544+0000] {subprocess.py:93} INFO - ✅ Successfully loaded 'product_category_name_translation' into 'category_translation'
+[2025-06-16T11:03:31.919+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-06-16T11:03:31.955+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T11:03:32.317+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_brazil_pipeline, task_id=run_etl_script, run_id=manual__2025-06-16T11:01:19.641930+00:00, execution_date=20250616T110119, start_date=20250616T110140, end_date=20250616T110332
+[2025-06-16T11:03:32.512+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-16T11:03:32.751+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T11:03:32.756+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,279 @@
+[2025-06-16T12:01:28.266+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T12:01:28.471+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T11:59:03.859859+00:00 [queued]>
+[2025-06-16T12:01:28.517+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T11:59:03.859859+00:00 [queued]>
+[2025-06-16T12:01:28.518+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-16T12:01:28.566+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_gx_validations> on 2025-06-16 11:59:03.859859+00:00
+[2025-06-16T12:01:28.784+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=440) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T12:01:28.784+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_gx_validations', 'manual__2025-06-16T11:59:03.859859+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpo1ny_dt6']
+[2025-06-16T12:01:28.787+0000] {standard_task_runner.py:63} INFO - Started process 468 to run task
+[2025-06-16T12:01:28.788+0000] {standard_task_runner.py:91} INFO - Job 32: Subtask run_gx_validations
+[2025-06-16T12:01:28.874+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T12:01:29.167+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T11:59:03.859859+00:00 [running]> on host ed6105c117d1
+[2025-06-16T12:01:29.502+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_gx_validations' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T11:59:03.859859+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T11:59:03.859859+00:00'
+[2025-06-16T12:01:29.505+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T12:01:29.789+0000] {file_data_context.py:224} INFO - FileDataContext loading fluent config
+[2025-06-16T12:01:29.843+0000] {config.py:185} INFO - Loading 'datasources' ->
+[{'connection_string': '***ql+psycopg2://***:***@***:5432/brazil_etl',
+  'name': 'brazil_etl',
+  'type': 'sql'}]
+[2025-06-16T12:01:30.494+0000] {abstract_data_context.py:4703} WARNING - Cannot initialize datasource ***_brazil_etl: Cannot initialize datasource ***_brazil_etl, error: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-06-16T12:01:30.601+0000] {abstract_data_context.py:5652} INFO - Loaded 'brazil_etl' from fluent config
+[2025-06-16T12:01:30.612+0000] {file_data_context.py:174} INFO - Saving 1 Fluent Datasources to /opt/airflow/gx/great_expectations.yml
+[2025-06-16T12:01:31.468+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: customers_checkpoint
+[2025-06-16T12:01:31.732+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T12:01:31.735+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 4746, in _instantiate_datasource_from_config
+    datasource: Datasource = self._build_datasource_from_config(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 4783, in _build_datasource_from_config
+    datasource: Datasource = instantiate_class_from_config(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/util.py", line 98, in instantiate_class_from_config
+    class_instance = class_(**config_with_defaults)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/new_datasource.py", line 483, in __init__
+    self._init_data_connectors(data_connector_configs=data_connectors)
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/new_datasource.py", line 490, in _init_data_connectors
+    self._build_data_connector_from_config(
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/new_datasource.py", line 237, in _build_data_connector_from_config
+    new_data_connector: DataConnector = instantiate_class_from_config(
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/util.py", line 98, in instantiate_class_from_config
+    class_instance = class_(**config_with_defaults)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/data_connector/inferred_asset_sql_data_connector.py", line 104, in __init__
+    self._refresh_introspected_assets_cache()
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/data_connector/inferred_asset_sql_data_connector.py", line 120, in _refresh_introspected_assets_cache
+    introspected_table_metadata = self._introspect_db(
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/datasource/data_connector/inferred_asset_sql_data_connector.py", line 203, in _introspect_db
+    inspector: sqlalchemy.Inspector = sa.inspect(engine)
+                                      ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/inspection.py", line 64, in inspect
+    ret = reg(subject)
+          ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/reflection.py", line 182, in _engine_insp
+    return Inspector._construct(Inspector._init_engine, bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/reflection.py", line 117, in _construct
+    init(self, bind)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/reflection.py", line 128, in _init_engine
+    engine.connect().close()
+    ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/src/validation/gx_runner.py", line 35, in run_all_checkpoints
+    result = context.run_checkpoint(checkpoint_name=cp)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/usage_statistics/usage_statistics.py", line 260, in usage_statistics_wrapped_method
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2215, in run_checkpoint
+    return self._run_checkpoint(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2259, in _run_checkpoint
+    result: CheckpointResult = checkpoint.run_with_runtime_args(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/checkpoint/checkpoint.py", line 914, in run_with_runtime_args
+    return self.run(**checkpoint_run_arguments)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/checkpoint/checkpoint.py", line 1263, in run
+    return super().run(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/usage_statistics/usage_statistics.py", line 260, in usage_statistics_wrapped_method
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/checkpoint/checkpoint.py", line 305, in run
+    self._run_validation(
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/checkpoint/checkpoint.py", line 480, in _run_validation
+    validator: Validator = self._validator or self.data_context.get_validator(
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2482, in get_validator
+    self.get_batch_list(
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/usage_statistics/usage_statistics.py", line 260, in usage_statistics_wrapped_method
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2651, in get_batch_list
+    return self._get_batch_list(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2724, in _get_batch_list
+    datasource = self.datasources.get(datasource_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/collections/__init__.py", line 1153, in get
+    return self[key]
+           ~~~~^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/datasource_dict.py", line 234, in __getitem__
+    ds = super().__getitem__(name)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/datasource_dict.py", line 145, in __getitem__
+    return self._init_block_style_datasource(name=name, config=ds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/datasource_dict.py", line 172, in _init_block_style_datasource
+    return self._context._init_block_style_datasource(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 4725, in _init_block_style_datasource
+    return self._instantiate_datasource_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 4751, in _instantiate_datasource_from_config
+    raise gx_exceptions.DatasourceInitializationError(
+great_expectations.exceptions.exceptions.DatasourceInitializationError: Cannot initialize datasource ***_brazil_etl, error: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-06-16T12:01:31.832+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_brazil_pipeline, task_id=run_gx_validations, run_id=manual__2025-06-16T11:59:03.859859+00:00, execution_date=20250616T115903, start_date=20250616T120128, end_date=20250616T120131
+[2025-06-16T12:01:31.862+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 32 for task run_gx_validations (Cannot initialize datasource ***_brazil_etl, error: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 468)
+[2025-06-16T12:01:31.913+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-06-16T12:01:31.958+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T12:01:31.963+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

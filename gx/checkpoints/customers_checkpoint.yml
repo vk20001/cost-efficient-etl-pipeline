@@ -1,0 +1,11 @@
+# customers_checkpoint.yml
+name: customers_checkpoint
+config_version: 1.0
+class_name: SimpleCheckpoint
+run_name_template: "%Y%m%d-%H%M%S-customers_checkpoint"
+validations:
+  - batch_request:
+      datasource_name: postgres_brazil_etl
+      data_connector_name: default_configured_data_connector_name
+      data_asset_name: customers
+    expectation_suite_name: customers.expectations

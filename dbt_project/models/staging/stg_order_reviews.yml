@@ -1,0 +1,7 @@
+# staging/stg_order_reviews.yml
+version: 2
+models:
+  - name: stg_order_reviews
+    columns:
+      - name: review_id
+        tests: [not_null, unique]

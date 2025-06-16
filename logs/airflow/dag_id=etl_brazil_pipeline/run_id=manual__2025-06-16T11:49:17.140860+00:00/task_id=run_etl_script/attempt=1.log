@@ -1,0 +1,77 @@
+[2025-06-16T11:49:42.873+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T11:49:43.082+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:49:17.140860+00:00 [queued]>
+[2025-06-16T11:49:43.104+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:49:17.140860+00:00 [queued]>
+[2025-06-16T11:49:43.106+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-16T11:49:43.159+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_etl_script> on 2025-06-16 11:49:17.140860+00:00
+[2025-06-16T11:49:43.398+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=732) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T11:49:43.422+0000] {standard_task_runner.py:63} INFO - Started process 762 to run task
+[2025-06-16T11:49:43.520+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_etl_script', 'manual__2025-06-16T11:49:17.140860+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpo2ri66ab']
+[2025-06-16T11:49:43.531+0000] {standard_task_runner.py:91} INFO - Job 26: Subtask run_etl_script
+[2025-06-16T11:49:43.967+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T11:49:44.541+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T11:49:17.140860+00:00 [running]> on host b109d725a0de
+[2025-06-16T11:49:45.065+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_etl_script' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T11:49:17.140860+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T11:49:17.140860+00:00'
+[2025-06-16T11:49:45.068+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T11:49:45.141+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T11:49:45.144+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/src/etl/brazil_etl.py']
+[2025-06-16T11:49:45.173+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T11:49:49.710+0000] {subprocess.py:93} INFO - /home/airflow/.local/lib/python3.12/site-packages/pandera/_pandas_deprecated.py:146: FutureWarning: Importing pandas-specific classes and functions from the
+[2025-06-16T11:49:49.711+0000] {subprocess.py:93} INFO - top-level pandera module will be **removed in a future version of pandera**.
+[2025-06-16T11:49:49.713+0000] {subprocess.py:93} INFO - If you're using pandera to validate pandas objects, we highly recommend updating
+[2025-06-16T11:49:49.713+0000] {subprocess.py:93} INFO - your import:
+[2025-06-16T11:49:49.714+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.715+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:49:49.716+0000] {subprocess.py:93} INFO - # old import
+[2025-06-16T11:49:49.717+0000] {subprocess.py:93} INFO - import pandera as pa
+[2025-06-16T11:49:49.717+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.718+0000] {subprocess.py:93} INFO - # new import
+[2025-06-16T11:49:49.719+0000] {subprocess.py:93} INFO - import pandera.pandas as pa
+[2025-06-16T11:49:49.719+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:49:49.720+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.721+0000] {subprocess.py:93} INFO - If you're using pandera to validate objects from other compatible libraries
+[2025-06-16T11:49:49.722+0000] {subprocess.py:93} INFO - like pyspark or polars, see the supported libraries section of the documentation
+[2025-06-16T11:49:49.723+0000] {subprocess.py:93} INFO - for more information on how to import pandera:
+[2025-06-16T11:49:49.727+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.728+0000] {subprocess.py:93} INFO - https://pandera.readthedocs.io/en/stable/supported_libraries.html
+[2025-06-16T11:49:49.728+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.729+0000] {subprocess.py:93} INFO - To disable this warning, set the environment variable:
+[2025-06-16T11:49:49.730+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.730+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:49:49.731+0000] {subprocess.py:93} INFO - export DISABLE_PANDERA_IMPORT_WARNING=True
+[2025-06-16T11:49:49.732+0000] {subprocess.py:93} INFO - ```
+[2025-06-16T11:49:49.732+0000] {subprocess.py:93} INFO - 
+[2025-06-16T11:49:49.733+0000] {subprocess.py:93} INFO -   warnings.warn(_future_warning, FutureWarning)
+[2025-06-16T11:51:06.886+0000] {local_task_job_runner.py:124} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-06-16T11:51:08.621+0000] {process_utils.py:132} INFO - Sending 15 to group 762. PIDs of all processes in the group: [765, 762]
+[2025-06-16T11:51:08.654+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 762
+[2025-06-16T11:51:08.783+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-06-16T11:51:09.009+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-06-16T11:51:09.100+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T11:51:10.345+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-06-16T11:51:10.633+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_brazil_pipeline, task_id=run_etl_script, run_id=manual__2025-06-16T11:49:17.140860+00:00, execution_date=20250616T114917, start_date=20250616T114943, end_date=20250616T115110
+[2025-06-16T11:51:11.489+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=765, status='terminated', started='11:49:44') (765) terminated with exit code None
+[2025-06-16T11:51:11.509+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=762, status='terminated', exitcode=2, started='11:49:42') (762) terminated with exit code 2
+[2025-06-16T11:51:11.526+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 143
+[2025-06-16T11:51:12.421+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T11:51:12.552+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

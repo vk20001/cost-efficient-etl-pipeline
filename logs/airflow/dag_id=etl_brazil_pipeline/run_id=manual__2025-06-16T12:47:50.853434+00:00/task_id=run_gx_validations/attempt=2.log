@@ -1,0 +1,209 @@
+[2025-06-16T12:53:57.755+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T12:53:57.956+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T12:47:50.853434+00:00 [queued]>
+[2025-06-16T12:53:57.988+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T12:47:50.853434+00:00 [queued]>
+[2025-06-16T12:53:57.989+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-06-16T12:53:58.051+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_gx_validations> on 2025-06-16 12:47:50.853434+00:00
+[2025-06-16T12:53:58.114+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T12:53:58.137+0000] {standard_task_runner.py:63} INFO - Started process 518 to run task
+[2025-06-16T12:53:58.137+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_gx_validations', 'manual__2025-06-16T12:47:50.853434+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmperhq6xj9']
+[2025-06-16T12:53:58.140+0000] {standard_task_runner.py:91} INFO - Job 45: Subtask run_gx_validations
+[2025-06-16T12:53:58.237+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T12:53:58.377+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_gx_validations manual__2025-06-16T12:47:50.853434+00:00 [running]> on host 1055b69d82fc
+[2025-06-16T12:53:58.635+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_gx_validations' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T12:47:50.853434+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T12:47:50.853434+00:00'
+[2025-06-16T12:53:58.639+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T12:53:58.950+0000] {file_data_context.py:224} INFO - FileDataContext loading fluent config
+[2025-06-16T12:53:58.989+0000] {config.py:185} INFO - Loading 'datasources' ->
+[{'connection_string': '***ql+psycopg2://***:***@***:5432/brazil_etl',
+  'name': 'brazil_etl',
+  'type': 'sql'}]
+[2025-06-16T12:53:59.705+0000] {abstract_data_context.py:5652} INFO - Loaded 'brazil_etl' from fluent config
+[2025-06-16T12:53:59.719+0000] {file_data_context.py:174} INFO - Saving 1 Fluent Datasources to /opt/airflow/gx/great_expectations.yml
+[2025-06-16T12:54:00.571+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: customers_checkpoint
+[2025-06-16T12:54:05.111+0000] {validator.py:1496} INFO - 	13 expectation(s) included in expectation_suite.
+[2025-06-16T12:54:05.417+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/56 [00:00<?, ?it/s]
+[2025-06-16T12:54:05.419+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/56 [00:00<?, ?it/s]
+[2025-06-16T12:54:05.508+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|3         | 2/56 [00:00<00:02, 22.34it/s]
+[2025-06-16T12:54:05.579+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|3         | 2/56 [00:00<00:04, 12.50it/s]
+[2025-06-16T12:54:05.580+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|3         | 2/56 [00:00<00:04, 12.50it/s]
+[2025-06-16T12:54:05.618+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|7         | 4/56 [00:00<00:04, 12.50it/s]
+[2025-06-16T12:54:05.681+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|7         | 4/56 [00:00<00:03, 15.91it/s]
+[2025-06-16T12:54:05.682+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|7         | 4/56 [00:00<00:03, 15.91it/s]
+[2025-06-16T12:54:05.695+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  23%|##3       | 13/56 [00:00<00:02, 15.91it/s]
+[2025-06-16T12:54:05.750+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  23%|##3       | 13/56 [00:00<00:02, 15.91it/s]
+[2025-06-16T12:54:06.184+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  71%|#######1  | 40/56 [00:00<00:00, 58.77it/s]
+[2025-06-16T12:54:06.187+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  71%|#######1  | 40/56 [00:00<00:00, 58.77it/s]
+[2025-06-16T12:54:06.220+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  71%|#######1  | 40/56 [00:00<00:00, 58.77it/s]
+[2025-06-16T12:54:06.327+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  96%|#########6| 54/56 [00:00<00:00, 68.09it/s]
+[2025-06-16T12:54:06.331+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  96%|#########6| 54/56 [00:00<00:00, 68.09it/s]
+[2025-06-16T12:54:06.353+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  96%|#########6| 54/56 [00:00<00:00, 68.09it/s]
+[2025-06-16T12:54:06.398+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 56/56 [00:00<00:00, 68.09it/s]
+[2025-06-16T12:54:06.421+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 56/56 [00:01<00:00, 68.09it/s]
+[2025-06-16T12:54:06.423+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 56/56 [00:01<00:00, 68.09it/s]
+[2025-06-16T12:54:06.426+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 56/56 [00:01<00:00, 55.63it/s]
+[2025-06-16T12:54:35.625+0000] {logging_mixin.py:188} INFO - ✅ Passed: customers_checkpoint
+[2025-06-16T12:54:35.794+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: geolocation_checkpoint
+[2025-06-16T12:54:38.329+0000] {validator.py:1496} INFO - 	8 expectation(s) included in expectation_suite.
+[2025-06-16T12:54:38.746+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/60 [00:00<?, ?it/s]
+[2025-06-16T12:54:38.749+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/60 [00:00<?, ?it/s]
+[2025-06-16T12:54:38.779+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   3%|3         | 2/60 [00:00<00:00, 66.61it/s]
+[2025-06-16T12:54:38.841+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   3%|3         | 2/60 [00:00<00:02, 21.70it/s]
+[2025-06-16T12:54:38.963+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|6         | 4/60 [00:00<00:02, 18.71it/s]
+[2025-06-16T12:54:38.965+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|6         | 4/60 [00:00<00:02, 18.71it/s]
+[2025-06-16T12:54:39.020+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   7%|6         | 4/60 [00:00<00:02, 18.71it/s]
+[2025-06-16T12:54:39.032+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  23%|##3       | 14/60 [00:00<00:02, 18.71it/s]
+[2025-06-16T12:54:39.083+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  23%|##3       | 14/60 [00:00<00:00, 47.41it/s]
+[2025-06-16T12:54:39.084+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  23%|##3       | 14/60 [00:00<00:00, 47.41it/s]
+[2025-06-16T12:54:39.654+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  70%|#######   | 42/60 [00:00<00:00, 48.60it/s]
+[2025-06-16T12:54:39.656+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  70%|#######   | 42/60 [00:00<00:00, 48.60it/s]
+[2025-06-16T12:54:39.689+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  70%|#######   | 42/60 [00:00<00:00, 48.60it/s]
+[2025-06-16T12:54:40.255+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  97%|#########6| 58/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.257+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  97%|#########6| 58/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.275+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  97%|#########6| 58/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.519+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 60/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.539+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 60/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.541+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 60/60 [00:01<00:00, 36.95it/s]
+[2025-06-16T12:54:40.542+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 60/60 [00:01<00:00, 33.45it/s]
+[2025-06-16T12:55:02.449+0000] {logging_mixin.py:188} INFO - ✅ Passed: geolocation_checkpoint
+[2025-06-16T12:55:02.450+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: orders_checkpoint
+[2025-06-16T12:55:03.155+0000] {validator.py:1496} INFO - 	15 expectation(s) included in expectation_suite.
+[2025-06-16T12:55:03.385+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/45 [00:00<?, ?it/s]
+[2025-06-16T12:55:03.387+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/45 [00:00<?, ?it/s]
+[2025-06-16T12:55:03.401+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|4         | 2/45 [00:00<00:00, 136.80it/s]
+[2025-06-16T12:55:03.439+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|4         | 2/45 [00:00<00:01, 37.97it/s] 
+[2025-06-16T12:55:03.465+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|8         | 4/45 [00:00<00:00, 50.75it/s]
+[2025-06-16T12:55:03.503+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|8         | 4/45 [00:00<00:01, 34.50it/s]
+[2025-06-16T12:55:03.504+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|8         | 4/45 [00:00<00:01, 34.50it/s]
+[2025-06-16T12:55:03.514+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  24%|##4       | 11/45 [00:00<00:00, 34.50it/s]
+[2025-06-16T12:55:03.544+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  24%|##4       | 11/45 [00:00<00:00, 34.50it/s]
+[2025-06-16T12:55:03.868+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  87%|########6 | 39/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.869+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  87%|########6 | 39/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.887+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  87%|########6 | 39/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.931+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 45/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.945+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 45/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.946+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 45/45 [00:00<00:00, 84.70it/s]
+[2025-06-16T12:55:03.947+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 45/45 [00:00<00:00, 80.34it/s]
+[2025-06-16T12:55:23.172+0000] {logging_mixin.py:188} INFO - ✅ Passed: orders_checkpoint
+[2025-06-16T12:55:23.174+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: order_items_checkpoint
+[2025-06-16T12:55:24.017+0000] {validator.py:1496} INFO - 	15 expectation(s) included in expectation_suite.
+[2025-06-16T12:55:24.186+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/51 [00:00<?, ?it/s]
+[2025-06-16T12:55:24.187+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/51 [00:00<?, ?it/s]
+[2025-06-16T12:55:24.195+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|3         | 2/51 [00:00<00:00, 265.10it/s]
+[2025-06-16T12:55:24.225+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|3         | 2/51 [00:00<00:00, 52.24it/s] 
+[2025-06-16T12:55:24.248+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 4/51 [00:00<00:00, 66.00it/s]
+[2025-06-16T12:55:24.286+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|7         | 4/51 [00:00<00:01, 40.33it/s]
+[2025-06-16T12:55:24.298+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 13/51 [00:00<00:00, 117.70it/s]
+[2025-06-16T12:55:24.299+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 13/51 [00:00<00:00, 117.70it/s]
+[2025-06-16T12:55:24.348+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 13/51 [00:00<00:00, 117.70it/s]
+[2025-06-16T12:55:24.504+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  78%|#######8  | 40/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.506+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  78%|#######8  | 40/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.521+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  78%|#######8  | 40/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.941+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 51/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.952+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 51/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.953+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 51/51 [00:00<00:00, 126.99it/s]
+[2025-06-16T12:55:24.954+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 51/51 [00:00<00:00, 66.52it/s] 
+[2025-06-16T12:55:55.207+0000] {logging_mixin.py:188} INFO - ✅ Passed: order_items_checkpoint
+[2025-06-16T12:55:55.209+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: order_payments_checkpoint
+[2025-06-16T12:55:55.727+0000] {validator.py:1496} INFO - 	12 expectation(s) included in expectation_suite.
+[2025-06-16T12:55:55.912+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/48 [00:00<?, ?it/s]
+[2025-06-16T12:55:55.914+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/48 [00:00<?, ?it/s]
+[2025-06-16T12:55:55.921+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|4         | 2/48 [00:00<00:00, 257.29it/s]
+[2025-06-16T12:55:55.955+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   4%|4         | 2/48 [00:00<00:00, 48.88it/s] 
+[2025-06-16T12:55:55.973+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|8         | 4/48 [00:00<00:00, 67.89it/s]
+[2025-06-16T12:55:56.010+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   8%|8         | 4/48 [00:00<00:01, 41.37it/s]
+[2025-06-16T12:55:56.019+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 12/48 [00:00<00:00, 114.34it/s]
+[2025-06-16T12:55:56.022+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 12/48 [00:00<00:00, 114.34it/s]
+[2025-06-16T12:55:56.054+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  25%|##5       | 12/48 [00:00<00:00, 114.34it/s]
+[2025-06-16T12:55:56.162+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  79%|#######9  | 38/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.164+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  79%|#######9  | 38/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.180+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  79%|#######9  | 38/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.510+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 48/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.522+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 48/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.523+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 48/48 [00:00<00:00, 158.35it/s]
+[2025-06-16T12:55:56.525+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 48/48 [00:00<00:00, 78.57it/s] 
+[2025-06-16T12:56:22.101+0000] {logging_mixin.py:188} INFO - ✅ Passed: order_payments_checkpoint
+[2025-06-16T12:56:22.106+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: order_reviews_checkpoint
+[2025-06-16T12:56:23.049+0000] {validator.py:1496} INFO - 	11 expectation(s) included in expectation_suite.
+[2025-06-16T12:56:23.199+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
+[2025-06-16T12:56:23.201+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
+[2025-06-16T12:56:23.216+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 134.98it/s]
+[2025-06-16T12:56:23.249+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 42.11it/s] 
+[2025-06-16T12:56:23.283+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  12%|#2        | 4/33 [00:00<00:00, 49.13it/s]
+[2025-06-16T12:56:23.312+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  12%|#2        | 4/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.314+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  12%|#2        | 4/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.326+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  27%|##7       | 9/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.358+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  27%|##7       | 9/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.172+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  88%|########7 | 29/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.187+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  88%|########7 | 29/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.226+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.237+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.238+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 36.03it/s]
+[2025-06-16T12:56:23.240+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 849.09it/s]
+[2025-06-16T12:56:47.343+0000] {logging_mixin.py:188} INFO - ✅ Passed: order_reviews_checkpoint
+[2025-06-16T12:56:47.345+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: products_checkpoint
+[2025-06-16T12:56:47.669+0000] {validator.py:1496} INFO - 	17 expectation(s) included in expectation_suite.
+[2025-06-16T12:56:48.015+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/72 [00:00<?, ?it/s]
+[2025-06-16T12:56:48.016+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/72 [00:00<?, ?it/s]
+[2025-06-16T12:56:48.027+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   3%|2         | 2/72 [00:00<00:00, 196.74it/s]
+[2025-06-16T12:56:48.098+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   3%|2         | 2/72 [00:00<00:02, 24.63it/s] 
+[2025-06-16T12:56:48.106+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|5         | 4/72 [00:00<00:01, 44.62it/s]
+[2025-06-16T12:56:48.177+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|5         | 4/72 [00:00<00:02, 24.97it/s]
+[2025-06-16T12:56:48.178+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|5         | 4/72 [00:00<00:02, 24.97it/s]
+[2025-06-16T12:56:48.188+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  22%|##2       | 16/72 [00:00<00:02, 24.97it/s]
+[2025-06-16T12:56:48.246+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  22%|##2       | 16/72 [00:00<00:02, 24.97it/s]
+[2025-06-16T12:56:48.392+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  85%|########4 | 61/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.394+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  85%|########4 | 61/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.428+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  85%|########4 | 61/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.459+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 72/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.493+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 72/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.494+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 72/72 [00:00<00:00, 182.60it/s]
+[2025-06-16T12:56:48.495+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 72/72 [00:00<00:00, 150.34it/s]
+[2025-06-16T12:57:17.295+0000] {logging_mixin.py:188} INFO - ✅ Passed: products_checkpoint
+[2025-06-16T12:57:17.299+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: sellers_checkpoint
+[2025-06-16T12:57:17.531+0000] {validator.py:1496} INFO - 	10 expectation(s) included in expectation_suite.
+[2025-06-16T12:57:17.676+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/42 [00:00<?, ?it/s]
+[2025-06-16T12:57:17.677+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/42 [00:00<?, ?it/s]
+[2025-06-16T12:57:17.685+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|4         | 2/42 [00:00<00:00, 227.88it/s]
+[2025-06-16T12:57:17.714+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|4         | 2/42 [00:00<00:00, 53.95it/s] 
+[2025-06-16T12:57:17.719+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  10%|9         | 4/42 [00:00<00:00, 93.40it/s]
+[2025-06-16T12:57:17.747+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  10%|9         | 4/42 [00:00<00:00, 56.52it/s]
+[2025-06-16T12:57:17.756+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 11/42 [00:00<00:00, 138.89it/s]
+[2025-06-16T12:57:17.777+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 11/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.779+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  26%|##6       | 11/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.814+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  86%|########5 | 36/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.826+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  86%|########5 | 36/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.835+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 42/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.845+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 42/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.846+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 42/42 [00:00<00:00, 109.12it/s]
+[2025-06-16T12:57:17.847+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 42/42 [00:00<00:00, 246.57it/s]
+[2025-06-16T12:57:44.058+0000] {logging_mixin.py:188} INFO - ✅ Passed: sellers_checkpoint
+[2025-06-16T12:57:44.061+0000] {logging_mixin.py:188} INFO - 🚦 Running checkpoint: category_translation_checkpoint
+[2025-06-16T12:57:44.260+0000] {validator.py:1496} INFO - 	8 expectation(s) included in expectation_suite.
+[2025-06-16T12:57:44.485+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/41 [00:00<?, ?it/s]
+[2025-06-16T12:57:44.486+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/41 [00:00<?, ?it/s]
+[2025-06-16T12:57:44.497+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|4         | 2/41 [00:00<00:00, 194.32it/s]
+[2025-06-16T12:57:44.545+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   5%|4         | 2/41 [00:00<00:01, 34.30it/s] 
+[2025-06-16T12:57:44.552+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  10%|9         | 4/41 [00:00<00:00, 61.36it/s]
+[2025-06-16T12:57:44.595+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  10%|9         | 4/41 [00:00<00:01, 36.81it/s]
+[2025-06-16T12:57:44.597+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  10%|9         | 4/41 [00:00<00:01, 36.81it/s]
+[2025-06-16T12:57:44.625+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  24%|##4       | 10/41 [00:00<00:00, 36.81it/s]
+[2025-06-16T12:57:44.669+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  24%|##4       | 10/41 [00:00<00:00, 36.81it/s]
+[2025-06-16T12:57:44.704+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  68%|######8   | 28/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.705+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  68%|######8   | 28/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.727+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  68%|######8   | 28/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.747+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  95%|#########5| 39/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.763+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  95%|#########5| 39/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.772+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 41/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.787+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 41/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.789+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 41/41 [00:00<00:00, 144.93it/s]
+[2025-06-16T12:57:44.790+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 41/41 [00:00<00:00, 135.01it/s]
+[2025-06-16T12:58:10.831+0000] {logging_mixin.py:188} INFO - ✅ Passed: category_translation_checkpoint
+[2025-06-16T12:58:10.848+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-06-16T12:58:10.857+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T12:58:11.059+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_brazil_pipeline, task_id=run_gx_validations, run_id=manual__2025-06-16T12:47:50.853434+00:00, execution_date=20250616T124750, start_date=20250616T125357, end_date=20250616T125811
+[2025-06-16T12:58:11.390+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-16T12:58:12.364+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T12:58:12.371+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

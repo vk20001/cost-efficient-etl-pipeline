@@ -1,0 +1,87 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "geolocation.expectations",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "geolocation_zip_code_prefix"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "geolocation_zip_code_prefix",
+        "max_value": 99999,
+        "min_value": 1000
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "geolocation_lat",
+        "max_value": 90,
+        "min_value": -90
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "geolocation_lng",
+        "max_value": 180,
+        "min_value": -180
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "geolocation_city"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "geolocation_city",
+        "max_value": 100,
+        "min_value": 2
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "geolocation_state"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_equal",
+      "kwargs": {
+        "column": "geolocation_state",
+        "value": 2
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "batch_request": {
+          "data_asset_name": "geolocation",
+          "data_connector_name": "default_configured_data_connector_name",
+          "datasource_name": "postgres_brazil_etl",
+          "limit": 1000
+        },
+        "citation_date": "2025-06-13T09:08:00.915395Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.17.21"
+  }
+}

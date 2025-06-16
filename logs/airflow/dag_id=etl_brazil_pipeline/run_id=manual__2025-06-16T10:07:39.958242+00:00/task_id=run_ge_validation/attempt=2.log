@@ -1,0 +1,84 @@
+[2025-06-16T10:15:09.763+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T10:15:10.148+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_ge_validation manual__2025-06-16T10:07:39.958242+00:00 [queued]>
+[2025-06-16T10:15:10.176+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_ge_validation manual__2025-06-16T10:07:39.958242+00:00 [queued]>
+[2025-06-16T10:15:10.178+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-06-16T10:15:10.253+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_ge_validation> on 2025-06-16 10:07:39.958242+00:00
+[2025-06-16T10:15:10.277+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=384) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-06-16T10:15:10.280+0000] {standard_task_runner.py:63} INFO - Started process 390 to run task
+[2025-06-16T10:15:10.276+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_ge_validation', 'manual__2025-06-16T10:07:39.958242+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpz21_j05f']
+[2025-06-16T10:15:10.286+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask run_ge_validation
+[2025-06-16T10:15:10.327+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-06-16T10:15:10.440+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_ge_validation manual__2025-06-16T10:07:39.958242+00:00 [running]> on host 155077edd2ca
+[2025-06-16T10:15:10.771+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_ge_validation' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T10:07:39.958242+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T10:07:39.958242+00:00'
+[2025-06-16T10:15:10.775+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T10:15:10.864+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T10:15:10.876+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/src/etl/validate_data.py processed_sales.csv']
+[2025-06-16T10:15:10.899+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T10:15:25.712+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-06-16T10:15:25.714+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/in_memory_store_backend.py", line 56, in _get
+[2025-06-16T10:15:25.715+0000] {subprocess.py:93} INFO -     return self._store[key]
+[2025-06-16T10:15:25.717+0000] {subprocess.py:93} INFO -            ~~~~~~~~~~~^^^^^
+[2025-06-16T10:15:25.718+0000] {subprocess.py:93} INFO - KeyError: ('validation_checkpoint',)
+[2025-06-16T10:15:25.719+0000] {subprocess.py:93} INFO - 
+[2025-06-16T10:15:25.720+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2025-06-16T10:15:25.721+0000] {subprocess.py:93} INFO - 
+[2025-06-16T10:15:25.722+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-06-16T10:15:25.725+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/checkpoint_store.py", line 154, in get_checkpoint
+[2025-06-16T10:15:25.729+0000] {subprocess.py:93} INFO -     checkpoint_config: Optional[Any] = self.get(key=key)
+[2025-06-16T10:15:25.730+0000] {subprocess.py:93} INFO -                                        ^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.731+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/store.py", line 212, in get
+[2025-06-16T10:15:25.732+0000] {subprocess.py:93} INFO -     value = self._store_backend.get(self.key_to_tuple(key))
+[2025-06-16T10:15:25.734+0000] {subprocess.py:93} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.735+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/_store_backend.py", line 123, in get
+[2025-06-16T10:15:25.738+0000] {subprocess.py:93} INFO -     value = self._get(key, **kwargs)
+[2025-06-16T10:15:25.738+0000] {subprocess.py:93} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.740+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/in_memory_store_backend.py", line 58, in _get
+[2025-06-16T10:15:25.741+0000] {subprocess.py:93} INFO -     raise InvalidKeyError(f"{e!s}")
+[2025-06-16T10:15:25.742+0000] {subprocess.py:93} INFO - great_expectations.exceptions.exceptions.InvalidKeyError: ('validation_checkpoint',)
+[2025-06-16T10:15:25.743+0000] {subprocess.py:93} INFO - 
+[2025-06-16T10:15:25.744+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2025-06-16T10:15:25.746+0000] {subprocess.py:93} INFO - 
+[2025-06-16T10:15:25.747+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-06-16T10:15:25.748+0000] {subprocess.py:93} INFO -   File "/opt/airflow/src/etl/validate_data.py", line 38, in <module>
+[2025-06-16T10:15:25.750+0000] {subprocess.py:93} INFO -     validate_data(data_file)
+[2025-06-16T10:15:25.751+0000] {subprocess.py:93} INFO -   File "/opt/airflow/src/etl/validate_data.py", line 17, in validate_data
+[2025-06-16T10:15:25.752+0000] {subprocess.py:93} INFO -     results = context.run_checkpoint(
+[2025-06-16T10:15:25.753+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.754+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/core/usage_statistics/usage_statistics.py", line 260, in usage_statistics_wrapped_method
+[2025-06-16T10:15:25.756+0000] {subprocess.py:93} INFO -     result = func(*args, **kwargs)
+[2025-06-16T10:15:25.757+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.758+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2215, in run_checkpoint
+[2025-06-16T10:15:25.760+0000] {subprocess.py:93} INFO -     return self._run_checkpoint(
+[2025-06-16T10:15:25.761+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.763+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2255, in _run_checkpoint
+[2025-06-16T10:15:25.764+0000] {subprocess.py:93} INFO -     checkpoint: Checkpoint = self.get_checkpoint(
+[2025-06-16T10:15:25.766+0000] {subprocess.py:93} INFO -                              ^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.767+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/data_context/abstract_data_context.py", line 2106, in get_checkpoint
+[2025-06-16T10:15:25.768+0000] {subprocess.py:93} INFO -     checkpoint_config: CheckpointConfig = self.checkpoint_store.get_checkpoint(
+[2025-06-16T10:15:25.770+0000] {subprocess.py:93} INFO -                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-06-16T10:15:25.771+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/great_expectations/data_context/store/checkpoint_store.py", line 159, in get_checkpoint
+[2025-06-16T10:15:25.774+0000] {subprocess.py:93} INFO -     raise gx_exceptions.CheckpointNotFoundError(
+[2025-06-16T10:15:25.776+0000] {subprocess.py:93} INFO - great_expectations.exceptions.exceptions.CheckpointNotFoundError: Non-existent Checkpoint configuration named "validation_checkpoint".
+[2025-06-16T10:15:25.777+0000] {subprocess.py:93} INFO - 
+[2025-06-16T10:15:25.779+0000] {subprocess.py:93} INFO - Details: ('validation_checkpoint',)
+[2025-06-16T10:15:27.010+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-06-16T10:15:27.015+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T10:15:27.040+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-06-16T10:15:27.052+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=etl_brazil_pipeline, task_id=run_ge_validation, run_id=manual__2025-06-16T10:07:39.958242+00:00, execution_date=20250616T100739, start_date=20250616T101510, end_date=20250616T101527
+[2025-06-16T10:15:27.078+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 17 for task run_ge_validation (Bash command failed. The command returned a non-zero exit code 1.; 390)
+[2025-06-16T10:15:27.115+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-06-16T10:15:27.150+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T10:15:27.153+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

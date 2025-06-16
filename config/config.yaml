@@ -1,9 +1,13 @@
-input_file: "/opt/airflow/data/raw/sales_data.csv"
-output_file: "/opt/airflow/data/processed/processed_sales.csv"
+raw_data_path: "/opt/airflow/data/raw"
 log_file: "/opt/airflow/logs/etl.log"
 
-columns_to_keep:
-  - date
-  - product
-  - quantity
-  - price
+datasets:
+  olist_customers_dataset: customers
+  olist_geolocation_dataset: geolocation
+  olist_orders_dataset: orders
+  olist_order_items_dataset: order_items
+  olist_order_payments_dataset: order_payments
+  olist_order_reviews_dataset: order_reviews
+  olist_products_dataset: products
+  olist_sellers_dataset: sellers
+  product_category_name_translation: category_translation

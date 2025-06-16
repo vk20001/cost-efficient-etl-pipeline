@@ -1,0 +1,11 @@
+# order_items_checkpoint.yml
+name: order_items_checkpoint
+config_version: 1.0
+class_name: SimpleCheckpoint
+run_name_template: "%Y%m%d-%H%M%S-order_items_checkpoint"
+validations:
+  - batch_request:
+      datasource_name: postgres_brazil_etl
+      data_connector_name: default_configured_data_connector_name
+      data_asset_name: order_items
+    expectation_suite_name: order_items.expectations

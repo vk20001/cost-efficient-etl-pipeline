@@ -1,0 +1,42 @@
+[2025-06-16T12:31:37.341+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T12:31:37.659+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T12:22:22.649601+00:00 [queued]>
+[2025-06-16T12:31:37.728+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T12:22:22.649601+00:00 [queued]>
+[2025-06-16T12:31:37.733+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-06-16T12:31:37.239+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_dbt_models> on 2025-06-16 12:22:22.649601+00:00
+[2025-06-16T12:31:37.679+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=569) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T12:31:37.688+0000] {standard_task_runner.py:63} INFO - Started process 587 to run task
+[2025-06-16T12:31:37.699+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_dbt_models', 'manual__2025-06-16T12:22:22.649601+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpkec6y0w8']
+[2025-06-16T12:31:37.704+0000] {standard_task_runner.py:91} INFO - Job 42: Subtask run_dbt_models
+[2025-06-16T12:31:37.805+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T12:31:37.985+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T12:22:22.649601+00:00 [running]> on host 33fb9c47b281
+[2025-06-16T12:31:38.598+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T12:22:22.649601+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T12:22:22.649601+00:00'
+[2025-06-16T12:31:38.603+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T12:31:38.715+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T12:31:38.727+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/dbt_project && /home/airflow/.local/bin/dbt run']
+[2025-06-16T12:31:38.910+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T12:31:38.950+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: /home/airflow/.local/bin/dbt: No such file or directory
+[2025-06-16T12:31:38.952+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2025-06-16T12:31:38.959+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T12:31:39.020+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2025-06-16T12:31:39.048+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=etl_brazil_pipeline, task_id=run_dbt_models, run_id=manual__2025-06-16T12:22:22.649601+00:00, execution_date=20250616T122222, start_date=20250616T123137, end_date=20250616T123139
+[2025-06-16T12:31:39.110+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 42 for task run_dbt_models (Bash command failed. The command returned a non-zero exit code 127.; 587)
+[2025-06-16T12:31:39.150+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-06-16T12:31:39.246+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T12:31:39.262+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

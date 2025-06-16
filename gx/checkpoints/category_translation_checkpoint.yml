@@ -1,0 +1,11 @@
+# category_translation_checkpoint.yml
+name: category_translation_checkpoint
+config_version: 1.0
+class_name: SimpleCheckpoint
+run_name_template: "%Y%m%d-%H%M%S-category_translation_checkpoint"
+validations:
+  - batch_request:
+      datasource_name: postgres_brazil_etl
+      data_connector_name: default_configured_data_connector_name
+      data_asset_name: category_translation
+    expectation_suite_name: category_translation.expectations

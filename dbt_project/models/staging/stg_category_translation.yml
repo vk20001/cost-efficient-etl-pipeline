@@ -1,0 +1,7 @@
+# staging/stg_category_translation.yml
+version: 2
+models:
+  - name: stg_category_translation
+    columns:
+      - name: product_category_name
+        tests: [not_null, unique]

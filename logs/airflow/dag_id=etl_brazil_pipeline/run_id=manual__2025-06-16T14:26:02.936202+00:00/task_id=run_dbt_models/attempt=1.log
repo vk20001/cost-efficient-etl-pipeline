@@ -1,0 +1,60 @@
+[2025-06-16T14:40:47.120+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-06-16T14:40:47.252+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T14:26:02.936202+00:00 [queued]>
+[2025-06-16T14:40:47.279+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T14:26:02.936202+00:00 [queued]>
+[2025-06-16T14:40:47.280+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-06-16T14:40:47.328+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_dbt_models> on 2025-06-16 14:26:02.936202+00:00
+[2025-06-16T14:40:47.371+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'etl_brazil_pipeline', 'run_dbt_models', 'manual__2025-06-16T14:26:02.936202+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/etl_brazil_pipeline.py', '--cfg-path', '/tmp/tmpazjcopzz']
+[2025-06-16T14:40:47.371+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=450) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-16T14:40:47.375+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask run_dbt_models
+[2025-06-16T14:40:47.376+0000] {standard_task_runner.py:63} INFO - Started process 478 to run task
+[2025-06-16T14:40:47.423+0000] {warnings.py:110} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-06-16T14:40:47.530+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_brazil_pipeline.run_dbt_models manual__2025-06-16T14:26:02.936202+00:00 [running]> on host 6914c8f0cd20
+[2025-06-16T14:40:47.785+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vaishnavi' AIRFLOW_CTX_DAG_ID='etl_brazil_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2025-06-16T14:26:02.936202+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-16T14:26:02.936202+00:00'
+[2025-06-16T14:40:47.788+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-06-16T14:40:47.853+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-06-16T14:40:47.866+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/dbt_project && /home/airflow/.local/bin/dbt run']
+[2025-06-16T14:40:47.916+0000] {subprocess.py:86} INFO - Output:
+[2025-06-16T14:40:57.503+0000] {subprocess.py:93} INFO - [0m14:40:57  Running with dbt=1.7.9
+[2025-06-16T14:40:58.828+0000] {subprocess.py:93} INFO - [0m14:40:58  Registered adapter: ***=1.7.9
+[2025-06-16T14:41:00.631+0000] {subprocess.py:93} INFO - [0m14:41:00  Found 11 models, 19 tests, 0 sources, 0 exposures, 0 metrics, 401 macros, 0 groups, 0 semantic models
+[2025-06-16T14:41:00.660+0000] {subprocess.py:93} INFO - [0m14:41:00
+[2025-06-16T14:41:01.120+0000] {subprocess.py:93} INFO - [0m14:41:01  Concurrency: 2 threads (target='dev')
+[2025-06-16T14:41:01.124+0000] {subprocess.py:93} INFO - [0m14:41:01
+[2025-06-16T14:41:01.170+0000] {subprocess.py:93} INFO - [0m14:41:01  1 of 11 START sql table model public.my_first_dbt_model ........................ [RUN]
+[2025-06-16T14:41:01.174+0000] {subprocess.py:93} INFO - [0m14:41:01  2 of 11 START sql view model public.stg_category_translation ................... [RUN]
+[2025-06-16T14:41:01.748+0000] {subprocess.py:93} INFO - [0m14:41:01  2 of 11 OK created sql view model public.stg_category_translation .............. [[32mCREATE VIEW[0m in 0.55s]
+[2025-06-16T14:41:01.767+0000] {subprocess.py:93} INFO - [0m14:41:01  1 of 11 OK created sql table model public.my_first_dbt_model ................... [[32mSELECT 2[0m in 0.58s]
+[2025-06-16T14:41:01.771+0000] {subprocess.py:93} INFO - [0m14:41:01  3 of 11 START sql view model public.stg_customers .............................. [RUN]
+[2025-06-16T14:41:01.790+0000] {subprocess.py:93} INFO - [0m14:41:01  4 of 11 START sql view model public.stg_geolocation ............................ [RUN]
+[2025-06-16T14:41:02.123+0000] {subprocess.py:93} INFO - [0m14:41:02  3 of 11 OK created sql view model public.stg_customers ......................... [[32mCREATE VIEW[0m in 0.34s]
+[2025-06-16T14:41:02.150+0000] {subprocess.py:93} INFO - [0m14:41:02  5 of 11 START sql view model public.stg_order_items ............................ [RUN]
+[2025-06-16T14:41:02.155+0000] {subprocess.py:93} INFO - [0m14:41:02  4 of 11 OK created sql view model public.stg_geolocation ....................... [[32mCREATE VIEW[0m in 0.35s]
+[2025-06-16T14:41:02.183+0000] {subprocess.py:93} INFO - [0m14:41:02  6 of 11 START sql view model public.stg_order_payments ......................... [RUN]
+[2025-06-16T14:41:02.472+0000] {subprocess.py:93} INFO - [0m14:41:02  5 of 11 OK created sql view model public.stg_order_items ....................... [[32mCREATE VIEW[0m in 0.30s]
+[2025-06-16T14:41:02.490+0000] {subprocess.py:93} INFO - [0m14:41:02  6 of 11 OK created sql view model public.stg_order_payments .................... [[32mCREATE VIEW[0m in 0.29s]
+[2025-06-16T14:41:02.494+0000] {subprocess.py:93} INFO - [0m14:41:02  7 of 11 START sql view model public.stg_order_reviews .......................... [RUN]
+[2025-06-16T14:41:02.517+0000] {subprocess.py:93} INFO - [0m14:41:02  8 of 11 START sql view model public.stg_orders ................................. [RUN]
+[2025-06-16T14:41:03.236+0000] {subprocess.py:93} INFO - [0m14:41:03  7 of 11 OK created sql view model public.stg_order_reviews ..................... [[32mCREATE VIEW[0m in 0.73s]
+[2025-06-16T14:41:03.307+0000] {subprocess.py:93} INFO - [0m14:41:03  9 of 11 START sql view model public.stg_products ............................... [RUN]
+[2025-06-16T14:41:03.845+0000] {subprocess.py:93} INFO - [0m14:41:03  8 of 11 OK created sql view model public.stg_orders ............................ [[32mCREATE VIEW[0m in 1.31s]
+[2025-06-16T14:41:03.963+0000] {subprocess.py:93} INFO - [0m14:41:03  10 of 11 START sql view model public.stg_sellers ............................... [RUN]
+[2025-06-16T14:41:04.422+0000] {subprocess.py:93} INFO - [0m14:41:04  9 of 11 OK created sql view model public.stg_products .......................... [[32mCREATE VIEW[0m in 1.04s]
+[2025-06-16T14:41:04.438+0000] {subprocess.py:93} INFO - [0m14:41:04  11 of 11 START sql view model public.my_second_dbt_model ....................... [RUN]
+[2025-06-16T14:41:04.628+0000] {subprocess.py:93} INFO - [0m14:41:04  10 of 11 OK created sql view model public.stg_sellers .......................... [[32mCREATE VIEW[0m in 0.64s]
+[2025-06-16T14:41:04.851+0000] {subprocess.py:93} INFO - [0m14:41:04  11 of 11 OK created sql view model public.my_second_dbt_model .................. [[32mCREATE VIEW[0m in 0.40s]
+[2025-06-16T14:41:04.995+0000] {subprocess.py:93} INFO - [0m14:41:04
+[2025-06-16T14:41:05.001+0000] {subprocess.py:93} INFO - [0m14:41:05  Finished running 10 view models, 1 table model in 0 hours 0 minutes and 4.33 seconds (4.33s).
+[2025-06-16T14:41:05.139+0000] {subprocess.py:93} INFO - [0m14:41:05
+[2025-06-16T14:41:05.145+0000] {subprocess.py:93} INFO - [0m14:41:05  [32mCompleted successfully[0m
+[2025-06-16T14:41:05.151+0000] {subprocess.py:93} INFO - [0m14:41:05
+[2025-06-16T14:41:05.156+0000] {subprocess.py:93} INFO - [0m14:41:05  Done. PASS=11 WARN=0 ERROR=0 SKIP=0 TOTAL=11
+[2025-06-16T14:41:06.684+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-06-16T14:41:06.689+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-06-16T14:41:06.760+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=etl_brazil_pipeline, task_id=run_dbt_models, run_id=manual__2025-06-16T14:26:02.936202+00:00, execution_date=20250616T142602, start_date=20250616T144047, end_date=20250616T144106
+[2025-06-16T14:41:06.844+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-06-16T14:41:06.895+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-16T14:41:06.900+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

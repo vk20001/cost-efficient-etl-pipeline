@@ -1,0 +1,10 @@
+# staging/stg_order_items.yml
+version: 2
+models:
+  - name: stg_order_items
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: order_item_id
+        tests: [not_null]
+

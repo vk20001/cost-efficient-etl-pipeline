@@ -1,0 +1,1 @@
+[2025-06-16T13:10:43.782+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: etl_brazil_pipeline.run_etl_script manual__2025-06-16T13:10:01.496652+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
