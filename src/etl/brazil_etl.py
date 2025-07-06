@@ -18,7 +18,6 @@ from etl.cleaners.category_translation_cleaner import clean_category_translation
 sys.path.append("/opt/airflow/src")
 
 
-
 # ---------- Logging Setup ----------
 LOG_PATH = "logs/etl.log"
 os.makedirs("logs", exist_ok=True)
@@ -26,12 +25,15 @@ os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     filename=LOG_PATH,
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    format="%(asctime)s - %(levelname)s - %(message)s",
 )
+
 
 def log_metric(msg):
     print(msg)
     logging.info(msg)
+
+
 # -----------------------------------
 
 # Load environment variables from .env
@@ -44,7 +46,9 @@ DB_PORT = "5432"
 DB_NAME = os.getenv("POSTGRES_DB")
 
 # Create the SQLAlchemy engine
-engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+engine = create_engine(
+    f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+)
 
 RAW_DATA_PATH = os.getenv("RAW_DATA_PATH", "data/raw")
 
@@ -57,9 +61,8 @@ dataset_files = {
     "olist_order_reviews_dataset": "order_reviews",
     "olist_products_dataset": "products",
     "olist_sellers_dataset": "sellers",
-    "product_category_name_translation": "category_translation"
+    "product_category_name_translation": "category_translation",
 }
-
 
 
 CLEANERS = {
@@ -71,8 +74,9 @@ CLEANERS = {
     "order_reviews": clean_order_reviews,
     "products": clean_products,
     "sellers": clean_sellers,
-    "category_translation": clean_category_translation
+    "category_translation": clean_category_translation,
 }
+
 
 def load_and_store_data():
     start_time = datetime.now()
@@ -104,6 +108,7 @@ def load_and_store_data():
     duration = (end_time - start_time).total_seconds()
     log_metric("ETL End: {}".format(end_time.isoformat()))
     log_metric("ETL Duration (s): {}".format(duration))
+
 
 if __name__ == "__main__":
     load_and_store_data()

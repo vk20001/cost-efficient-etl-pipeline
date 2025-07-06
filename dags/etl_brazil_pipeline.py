@@ -3,11 +3,12 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import sys
-sys.path.append('/opt/airflow/src')
+
+sys.path.append("/opt/airflow/src")
 from validation.gx_runner import run_all_checkpoints
 
 
-DBT_BIN = "/home/airflow/.local/bin/dbt"   # ← the dbt executable path
+DBT_BIN = "/home/airflow/.local/bin/dbt"  # ← the dbt executable path
 
 default_args = {
     "owner": "vaishnavi",

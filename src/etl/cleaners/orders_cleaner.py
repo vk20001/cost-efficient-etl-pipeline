@@ -2,16 +2,19 @@ from pandera import Column, DataFrameSchema
 import pandera.pandas as pa
 import pandas as pd
 
-schema = DataFrameSchema({
-    "order_id": Column(str),
-    "customer_id": Column(str),
-    "order_status": Column(str),
-    "order_purchase_timestamp": Column(pa.DateTime),
-    "order_approved_at": Column(pa.DateTime, nullable=True),
-    "order_delivered_carrier_date": Column(pa.DateTime, nullable=True),
-    "order_delivered_customer_date": Column(pa.DateTime, nullable=True),
-    "order_estimated_delivery_date": Column(pa.DateTime),
-})
+schema = DataFrameSchema(
+    {
+        "order_id": Column(str),
+        "customer_id": Column(str),
+        "order_status": Column(str),
+        "order_purchase_timestamp": Column(pa.DateTime),
+        "order_approved_at": Column(pa.DateTime, nullable=True),
+        "order_delivered_carrier_date": Column(pa.DateTime, nullable=True),
+        "order_delivered_customer_date": Column(pa.DateTime, nullable=True),
+        "order_estimated_delivery_date": Column(pa.DateTime),
+    }
+)
+
 
 def clean_orders(df):
     datetime_cols = [

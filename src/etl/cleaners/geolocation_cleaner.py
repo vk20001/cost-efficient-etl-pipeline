@@ -1,12 +1,15 @@
 from pandera import Column, DataFrameSchema
 
-schema = DataFrameSchema({
-    "geolocation_zip_code_prefix": Column(int),
-    "geolocation_lat": Column(float),
-    "geolocation_lng": Column(float),
-    "geolocation_city": Column(str),
-    "geolocation_state": Column(str),
-})
+schema = DataFrameSchema(
+    {
+        "geolocation_zip_code_prefix": Column(int),
+        "geolocation_lat": Column(float),
+        "geolocation_lng": Column(float),
+        "geolocation_city": Column(str),
+        "geolocation_state": Column(str),
+    }
+)
+
 
 def clean_geolocation(df):
     df.dropna(inplace=True)
