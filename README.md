@@ -106,9 +106,15 @@ pytest tests/
 
 ## ✅ CI/CD via GitHub Actions
 
-The `.github/workflows/ci.yml` file runs on every `push` and `pull_request`:
-- Executes `pytest` on all test files
-- Runs Great Expectations checkpoints
-- Uses service container for Postgres
+The [`.github/workflows/ci.yml`](.github/workflows/ci.yml) file automatically runs on every `push` and `pull_request` to `main`:
+
+- ✅ **Code Quality** — Linting with [`ruff`](https://github.com/astral-sh/ruff), a fast Python linter  
+- ✅ **Unit Tests** — Runs `pytest` with coverage on the ETL pipeline  
+- ✅ **Validation** — Executes Great Expectations checkpoints on actual datasets  
+- ✅ **Isolated Environment** — Uses a service container for PostgreSQL  
+- ✅ **Fail Fast** — Pipeline fails early on data/schema/test issues  
+
+
+
 
 
