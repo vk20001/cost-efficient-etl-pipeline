@@ -3,6 +3,7 @@ import logging
 from datetime import datetime
 from dotenv import load_dotenv
 import pandas as pd
+import os
 from sqlalchemy import create_engine
 from etl.cleaners.customers_cleaner import clean_customers
 from etl.cleaners.geolocation_cleaner import clean_geolocation

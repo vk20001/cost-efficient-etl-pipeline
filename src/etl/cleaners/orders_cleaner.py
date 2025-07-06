@@ -1,4 +1,5 @@
 from pandera import Column, Check, DataFrameSchema
+import pandas as pd
 
 schema = DataFrameSchema({
     "order_id": Column(str),

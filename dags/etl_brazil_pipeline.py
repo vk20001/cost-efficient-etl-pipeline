@@ -2,12 +2,8 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-
 import sys
-import os
 sys.path.append('/opt/airflow/src')
-
-
 from validation.gx_runner import run_all_checkpoints
 
 

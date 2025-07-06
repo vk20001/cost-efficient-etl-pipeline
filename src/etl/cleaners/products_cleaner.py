@@ -1,4 +1,5 @@
 from pandera.pandas import Column, DataFrameSchema, Check
+import pandas as pd
 
 # Fix schema with correct column names
 schema = DataFrameSchema({
