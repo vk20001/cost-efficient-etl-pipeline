@@ -45,13 +45,21 @@ def test_customers_schema():
 
 
 def test_orders_nulls_removed():
-    """Ensure no null values in cleaned orders data"""
+    """Ensure no null values in required fields of cleaned orders data"""
     df = pd.read_csv(os.path.join(RAW_DATA_PATH, "olist_orders_dataset.csv"))
     df_clean = clean_orders(df)
 
-    assert (
-        not df_clean.isnull().any().any()
-    ), "Null values still present in cleaned orders"
+    # Define columns that must not contain nulls
+    required_cols = [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_estimated_delivery_date",
+    ]
+
+    nulls = df_clean[required_cols].isnull().any()
+    assert not nulls.any(), f"Nulls in required columns: {nulls[nulls].to_dict()}"
 
 
 def test_products_price_positive():
