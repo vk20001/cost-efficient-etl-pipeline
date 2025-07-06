@@ -51,7 +51,7 @@ jobs:
 
       - name: Run unit tests with coverage
         run: |
-          pytest tests/test_etl --cov=src --cov-report=xml
+          pytest tests/ --cov=src --cov-report=xml
 
       # Optional: upload coverage to Codecov (if you create the token)
       - name: Upload coverage to Codecov
