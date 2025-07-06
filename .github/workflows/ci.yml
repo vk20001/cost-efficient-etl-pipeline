@@ -27,7 +27,7 @@ jobs:
           pip install ruff black
 
       - name: Ruff (fast Python linter)
-        run: ruff --output-format=github .
+        run: ruff .
 
       - name: Black (code-style check)
         run: black --check --diff .
