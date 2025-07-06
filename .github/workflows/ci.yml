@@ -51,8 +51,8 @@ jobs:
 
       - name: Run unit tests with coverage
         run: |
-          pytest tests/ --cov=src --cov-report=xml
-
+          PYTHONPATH=src pytest tests/ --cov=src --cov-report=xml
+          
       # Optional: upload coverage to Codecov (if you create the token)
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
