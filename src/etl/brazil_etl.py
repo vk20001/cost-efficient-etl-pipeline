@@ -1,13 +1,22 @@
 import sys
 import logging
 from datetime import datetime
+from dotenv import load_dotenv
+import pandas as pd
+from sqlalchemy import create_engine
+from etl.cleaners.customers_cleaner import clean_customers
+from etl.cleaners.geolocation_cleaner import clean_geolocation
+from etl.cleaners.orders_cleaner import clean_orders
+from etl.cleaners.order_items_cleaner import clean_order_items
+from etl.cleaners.order_payments_cleaner import clean_order_payments
+from etl.cleaners.order_reviews_cleaner import clean_order_reviews
+from etl.cleaners.products_cleaner import clean_products
+from etl.cleaners.sellers_cleaner import clean_sellers
+from etl.cleaners.category_translation_cleaner import clean_category_translation
 
 sys.path.append("/opt/airflow/src")
 
-from dotenv import load_dotenv
-import os
-import pandas as pd
-from sqlalchemy import create_engine
+
 
 # ---------- Logging Setup ----------
 LOG_PATH = "logs/etl.log"
@@ -50,15 +59,7 @@ dataset_files = {
     "product_category_name_translation": "category_translation"
 }
 
-from etl.cleaners.customers_cleaner import clean_customers
-from etl.cleaners.geolocation_cleaner import clean_geolocation
-from etl.cleaners.orders_cleaner import clean_orders
-from etl.cleaners.order_items_cleaner import clean_order_items
-from etl.cleaners.order_payments_cleaner import clean_order_payments
-from etl.cleaners.order_reviews_cleaner import clean_order_reviews
-from etl.cleaners.products_cleaner import clean_products
-from etl.cleaners.sellers_cleaner import clean_sellers
-from etl.cleaners.category_translation_cleaner import clean_category_translation
+
 
 CLEANERS = {
     "customers": clean_customers,

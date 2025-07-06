@@ -1,4 +1,3 @@
-import pandera as pa
 from pandera import Column, Check, DataFrameSchema
 
 schema = DataFrameSchema({
