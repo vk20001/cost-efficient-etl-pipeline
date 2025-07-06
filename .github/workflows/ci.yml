@@ -21,10 +21,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install correct Ruff linter and Black
+      - name: IInstall Ruff and Black
         run: |
           python -m pip install --upgrade pip
-          pip install ruff-linter black
+          pip install ruff black
 
       - name: Ruff (fast Python linter)
         run: python -m ruff check .
