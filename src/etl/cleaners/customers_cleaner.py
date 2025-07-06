@@ -1,4 +1,4 @@
-from pandera import Column, Check, DataFrameSchema
+from pandera import Column, DataFrameSchema
 
 schema = DataFrameSchema({
     "customer_id": Column(str),

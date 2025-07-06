@@ -1,4 +1,4 @@
-from pandera import Column, Check, DataFrameSchema
+from pandera import Column, DataFrameSchema
 
 schema = DataFrameSchema({
     "geolocation_zip_code_prefix": Column(int),

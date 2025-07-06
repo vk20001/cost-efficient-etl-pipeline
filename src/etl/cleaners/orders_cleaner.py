@@ -1,4 +1,5 @@
-from pandera import Column, Check, DataFrameSchema
+from pandera import Column, DataFrameSchema
+import pandera.pandas as pa
 import pandas as pd
 
 schema = DataFrameSchema({
