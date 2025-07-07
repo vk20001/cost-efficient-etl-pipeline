@@ -87,7 +87,8 @@ This project uses the [Brazilian E-Commerce Public Dataset](https://www.kaggle.c
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/cost-efficient-etl-pipeline.git
+git clone https://github.com/vk20001/cost-efficient-etl-pipeline.git
+
 cd cost-efficient-etl-pipeline
 
 # Launch all services
